@@ -1,0 +1,299 @@
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/ccnxaueb_ccnxaueb/!svn/ver/4/csrc/cmd
+END
+ccnls.c
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/ccnxaueb_ccnxaueb/!svn/ver/4/csrc/cmd/ccnls.c
+END
+ccnrm.c
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/ccnxaueb_ccnxaueb/!svn/ver/4/csrc/cmd/ccnrm.c
+END
+ccnget.c
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/ccnxaueb_ccnxaueb/!svn/ver/4/csrc/cmd/ccnget.c
+END
+ccnsimplecat.c
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/ccnxaueb_ccnxaueb/!svn/ver/4/csrc/cmd/ccnsimplecat.c
+END
+dataresponsetest
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/ccnxaueb_ccnxaueb/!svn/ver/9/csrc/cmd/dataresponsetest
+END
+ccncatchunks2
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/ccnxaueb_ccnxaueb/!svn/ver/9/csrc/cmd/ccncatchunks2
+END
+ccnsendchunks
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/ccnxaueb_ccnxaueb/!svn/ver/9/csrc/cmd/ccnsendchunks
+END
+ccnslurp
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/ccnxaueb_ccnxaueb/!svn/ver/9/csrc/cmd/ccnslurp
+END
+ccnseqwriter.c
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/ccnxaueb_ccnxaueb/!svn/ver/4/csrc/cmd/ccnseqwriter.c
+END
+ccnbasicconfig
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/ccnxaueb_ccnxaueb/!svn/ver/9/csrc/cmd/ccnbasicconfig
+END
+ccn_fetch_test.c
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/ccnxaueb_ccnxaueb/!svn/ver/4/csrc/cmd/ccn_fetch_test.c
+END
+ccnput
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/ccnxaueb_ccnxaueb/!svn/ver/9/csrc/cmd/ccnput
+END
+ccn_ccnbtoxml.c
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/ccnxaueb_ccnxaueb/!svn/ver/4/csrc/cmd/ccn_ccnbtoxml.c
+END
+ccndumpnames.c
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/ccnxaueb_ccnxaueb/!svn/ver/4/csrc/cmd/ccndumpnames.c
+END
+ccn_test
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/ccnxaueb_ccnxaueb/!svn/ver/9/csrc/cmd/ccn_test
+END
+ccn_splitccnb
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/ccnxaueb_ccnxaueb/!svn/ver/4/csrc/cmd/ccn_splitccnb
+END
+ccncatchunks
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/ccnxaueb_ccnxaueb/!svn/ver/9/csrc/cmd/ccncatchunks
+END
+dataresponsetest.c
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/ccnxaueb_ccnxaueb/!svn/ver/4/csrc/cmd/dataresponsetest.c
+END
+ccncatchunks2.c
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/ccnxaueb_ccnxaueb/!svn/ver/9/csrc/cmd/ccncatchunks2.c
+END
+ccnsendchunks.c
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/ccnxaueb_ccnxaueb/!svn/ver/4/csrc/cmd/ccnsendchunks.c
+END
+ccnslurp.c
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/ccnxaueb_ccnxaueb/!svn/ver/4/csrc/cmd/ccnslurp.c
+END
+ccn_xmltoccnb
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/ccnxaueb_ccnxaueb/!svn/ver/4/csrc/cmd/ccn_xmltoccnb
+END
+ccnbasicconfig.c
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/ccnxaueb_ccnxaueb/!svn/ver/4/csrc/cmd/ccnbasicconfig.c
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/cmd/Makefile
+END
+ccnput.c
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/ccnxaueb_ccnxaueb/!svn/ver/4/csrc/cmd/ccnput.c
+END
+ccnbuzz
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/ccnxaueb_ccnxaueb/!svn/ver/9/csrc/cmd/ccnbuzz
+END
+ccn_test.c
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/ccnxaueb_ccnxaueb/!svn/ver/9/csrc/cmd/ccn_test.c
+END
+dir.mk
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/cmd/dir.mk
+END
+ccn_splitccnb.c
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/ccnxaueb_ccnxaueb/!svn/ver/4/csrc/cmd/ccn_splitccnb.c
+END
+ccnhexdumpdata
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/ccnxaueb_ccnxaueb/!svn/ver/4/csrc/cmd/ccnhexdumpdata
+END
+ccncatchunks.c
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/ccnxaueb_ccnxaueb/!svn/ver/4/csrc/cmd/ccncatchunks.c
+END
+ccncat
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/ccnxaueb_ccnxaueb/!svn/ver/9/csrc/cmd/ccncat
+END
+ccndumppcap
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/ccnxaueb_ccnxaueb/!svn/ver/4/csrc/cmd/ccndumppcap
+END
+ccnbx
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/ccnxaueb_ccnxaueb/!svn/ver/4/csrc/cmd/ccnbx
+END
+ccn_xmltoccnb.c
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/ccnxaueb_ccnxaueb/!svn/ver/4/csrc/cmd/ccn_xmltoccnb.c
+END
+ccnbuzz.c
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/ccnxaueb_ccnxaueb/!svn/ver/4/csrc/cmd/ccnbuzz.c
+END
+ccnls
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/ccnxaueb_ccnxaueb/!svn/ver/9/csrc/cmd/ccnls
+END
+ccnrm
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/ccnxaueb_ccnxaueb/!svn/ver/9/csrc/cmd/ccnrm
+END
+ccnget
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/ccnxaueb_ccnxaueb/!svn/ver/9/csrc/cmd/ccnget
+END
+ccntimefromdatetime.c
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/ccnxaueb_ccnxaueb/!svn/ver/4/csrc/cmd/ccntimefromdatetime.c
+END
+ccnsimplecat
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/ccnxaueb_ccnxaueb/!svn/ver/9/csrc/cmd/ccnsimplecat
+END
+ccnhexdumpdata.c
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/ccnxaueb_ccnxaueb/!svn/ver/4/csrc/cmd/ccnhexdumpdata.c
+END
+ccnseqwriter
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/ccnxaueb_ccnxaueb/!svn/ver/9/csrc/cmd/ccnseqwriter
+END
+ccn_fetch_test
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/ccnxaueb_ccnxaueb/!svn/ver/9/csrc/cmd/ccn_fetch_test
+END
+ccncat.c
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/ccnxaueb_ccnxaueb/!svn/ver/4/csrc/cmd/ccncat.c
+END
+ccn_ccnbtoxml
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/ccnxaueb_ccnxaueb/!svn/ver/4/csrc/cmd/ccn_ccnbtoxml
+END
+ccndumpnames
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/ccnxaueb_ccnxaueb/!svn/ver/9/csrc/cmd/ccndumpnames
+END
+ccndumppcap.c
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/ccnxaueb_ccnxaueb/!svn/ver/4/csrc/cmd/ccndumppcap.c
+END
+ccnbx.c
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/ccnxaueb_ccnxaueb/!svn/ver/4/csrc/cmd/ccnbx.c
+END

@@ -1,0 +1,4 @@
+#!/bin/bash
+
+cc -g -Wall -Wpointer-arith -Wreturn-type -Wstrict-prototypes -I../include -D_REENTRANT -fPIC   -c -o ccn_streamer.o ccn_streamer.c
+
