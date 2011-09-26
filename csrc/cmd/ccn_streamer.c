@@ -19,6 +19,8 @@
 
 char *progname;
 
+
+
 static void mylog(char *msg)
 {
     printf("[%s]: %s\n", progname, msg);
@@ -26,18 +28,42 @@ static void mylog(char *msg)
 
 char *get_interest_name(struct ccn_upcall_info *info)
 {
+	const unsigned char *comp;
+	size_t comp_size;
+	struct ccn_charbuf *c;
+	char *name;
+	struct ccn_indexbuf *comps;
+	ssize_t l;
+	int i;
+	
+	comps = ccn_indexbuf_create();
+	ccn_parse_interest(info->interest_ccnb, sizeof(info->interest_ccnb), info->pi, comps);
 
-    return "test";
+	 /* Name */
+    c = ccn_charbuf_create();
+    ccn_uri_append(c, info->interest_ccnb, sizeof(info->interest_ccnb), 1);
+
+	printf("%s", ccn_charbuf_as_string(c));
+	for (i = 0; i < comps->n - 1; i++) 
+	{
+        ccn_name_comp_get(info->interest_ccnb, comps, i, &comp, &comp_size);
+        printf("%s", comp);
+    }
+    return ccn_charbuf_as_string (c);
 }
 
 enum ccn_upcall_res incoming_interest(struct ccn_closure *selfp,
                                       enum ccn_upcall_kind kind,
                                       struct ccn_upcall_info *info)
 {
-    int res;
+    int res, i;
     struct ccn_charbuf *cob = selfp->data;
-    printf("Buffer: %s, size: %d\n", cob->buf, cob->length);
 
+	
+
+	//printf("Interest: %s \n", get_interest_name(info));
+    printf("Buffer: %s, size: %d\n", ccn_charbuf_as_string (cob), cob->length);
+	
     switch (kind)
     {
     case CCN_UPCALL_FINAL:
@@ -155,7 +181,8 @@ int main(int argc, char **argv)
     name = ccn_charbuf_create();
     pname = ccn_charbuf_create();
     temp = ccn_charbuf_create();
-
+	
+	
     content_type = CCN_CONTENT_DATA;
 
 
@@ -172,16 +199,16 @@ int main(int argc, char **argv)
 
     /*Create and sign content object*/
     buf = malloc(sizeof(char) * 50);
-    strcpy(buf, "hello there!");
+    strcpy(buf, "Demo buffer");
 
     sp.type = content_type; //Set content type
-
-    res = ccn_sign_content(ccn, temp, name, &sp, buf, sizeof(char)*15);
+	temp->buf = buf;
+   /* res = ccn_sign_content(ccn, temp, name, &sp, buf, sizeof(char)*15);
     if (res != 0)
     {
         fprintf(stderr, "Failed to encode ContentObject (res == %d)\n", res);
         exit(1);
-    }
+    }*/
 
     in_interest.data = temp;
 
