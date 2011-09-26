@@ -1,0 +1,107 @@
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/util
+END
+dir.mk
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/util/dir.mk
+END
+ccndstatus.sh
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/util/ccndstatus.sh
+END
+ccndstart
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/util/ccndstart
+END
+ccndstop.sh
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/util/ccndstop.sh
+END
+ccndlogging.sh
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/util/ccndlogging.sh
+END
+dbrief
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/util/dbrief
+END
+ccntestloop
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/util/ccntestloop
+END
+ccndstart.sh
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/util/ccndstart.sh
+END
+ccntestloop-trampoline
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/util/ccntestloop-trampoline
+END
+.gitignore
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/util/.gitignore
+END
+ccntestloop.sh
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/util/ccntestloop.sh
+END
+shebang
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/util/shebang
+END
+ccndstatus
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/util/ccndstatus
+END
+ccndstop
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/util/ccndstop
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/util/Makefile
+END
+gitwrap
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/util/gitwrap
+END
+ccndlogging
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/util/ccndlogging
+END

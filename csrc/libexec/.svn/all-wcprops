@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/ccnxaueb_ccnxaueb/!svn/ver/4/csrc/libexec
+END
+dir.mk
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/libexec/dir.mk
+END
+udplink
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/ccnxaueb_ccnxaueb/!svn/ver/9/csrc/libexec/udplink
+END
+udplink.c
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/libexec/udplink.c
+END
+ccndc
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/ccnxaueb_ccnxaueb/!svn/ver/9/csrc/libexec/ccndc
+END
+ccnd.conf.sample
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/libexec/ccnd.conf.sample
+END
+ccndc.c
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/libexec/ccndc.c
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/libexec/Makefile
+END

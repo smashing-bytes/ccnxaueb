@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/tests/stubs
+END
+pkill
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/tests/stubs/pkill
+END
+jot
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/tests/stubs/jot
+END

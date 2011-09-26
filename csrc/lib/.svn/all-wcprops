@@ -1,0 +1,329 @@
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/ccnxaueb_ccnxaueb/!svn/ver/4/csrc/lib
+END
+ccn_setup_sockaddr_un.c
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/lib/ccn_setup_sockaddr_un.c
+END
+signbenchtest.c
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/lib/signbenchtest.c
+END
+skel_decode_test.c
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/lib/skel_decode_test.c
+END
+ccn_client.c
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/ccnxaueb_ccnxaueb/!svn/ver/9/csrc/lib/ccn_client.c
+END
+ccn_digest.c
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/lib/ccn_digest.c
+END
+matrixtest.c
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/lib/matrixtest.c
+END
+ccn_face_mgmt.c
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/lib/ccn_face_mgmt.c
+END
+ccn_seqwriter.c
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/lib/ccn_seqwriter.c
+END
+hashtbtest.c
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/lib/hashtbtest.c
+END
+ccn_bulkdata.c
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/lib/ccn_bulkdata.c
+END
+gen_enum_dtag
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/lib/gen_enum_dtag
+END
+basicparsetest.c
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/lib/basicparsetest.c
+END
+ccn_traverse.c
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/lib/ccn_traverse.c
+END
+encodedecodetest
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/ccnxaueb_ccnxaueb/!svn/ver/9/csrc/lib/encodedecodetest
+END
+smoketestclientlib
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/ccnxaueb_ccnxaueb/!svn/ver/9/csrc/lib/smoketestclientlib
+END
+ccn_coding.c
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/lib/ccn_coding.c
+END
+ccn_indexbuf.c
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/lib/ccn_indexbuf.c
+END
+ccn_matrix.c
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/lib/ccn_matrix.c
+END
+ccn_bloom.c
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/lib/ccn_bloom.c
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/lib/Makefile
+END
+ccn_charbuf.c
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/lib/ccn_charbuf.c
+END
+gen_dtag_table
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/lib/gen_dtag_table
+END
+ccn_buf_encoder.c
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/lib/ccn_buf_encoder.c
+END
+ccn_merkle_path_asn1.c
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/lib/ccn_merkle_path_asn1.c
+END
+ccn_name_util.c
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/lib/ccn_name_util.c
+END
+encodedecodetest.c
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/lib/encodedecodetest.c
+END
+dir.mk
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/lib/dir.mk
+END
+smoketestclientlib.c
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/lib/smoketestclientlib.c
+END
+ccn_initkeystore.sh
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/lib/ccn_initkeystore.sh
+END
+Android.mk
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/lib/Android.mk
+END
+ccn_sockcreate.c
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/lib/ccn_sockcreate.c
+END
+ccn_versioning.c
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/lib/ccn_versioning.c
+END
+ccn_dtag_table.c
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/lib/ccn_dtag_table.c
+END
+hashtb.c
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/lib/hashtb.c
+END
+testcoverage
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/lib/testcoverage
+END
+ccn_sockaddrutil.c
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/lib/ccn_sockaddrutil.c
+END
+ccn_header.c
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/lib/ccn_header.c
+END
+ccn_fetch.c
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/lib/ccn_fetch.c
+END
+roundtripper
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/lib/roundtripper
+END
+ccn_extend_dict.c
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/lib/ccn_extend_dict.c
+END
+ccn_schedule.c
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/lib/ccn_schedule.c
+END
+ccn_match.c
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/lib/ccn_match.c
+END
+signbenchtest
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/ccnxaueb_ccnxaueb/!svn/ver/4/csrc/lib/signbenchtest
+END
+skel_decode_test
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/ccnxaueb_ccnxaueb/!svn/ver/4/csrc/lib/skel_decode_test
+END
+ccn_interest.c
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/lib/ccn_interest.c
+END
+ccn_signing.c
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/lib/ccn_signing.c
+END
+ccn_uri.c
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/lib/ccn_uri.c
+END
+matrixtest
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/ccnxaueb_ccnxaueb/!svn/ver/4/csrc/lib/matrixtest
+END
+ccn_reg_mgmt.c
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/lib/ccn_reg_mgmt.c
+END
+ccn_buf_decoder.c
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/ccnxaueb_ccnxaueb/!svn/ver/4/csrc/lib/ccn_buf_decoder.c
+END
+ccn_keystore.c
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/lib/ccn_keystore.c
+END
+hashtbtest
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/ccnxaueb_ccnxaueb/!svn/ver/4/csrc/lib/hashtbtest
+END
+ccn_verifysig.c
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/lib/ccn_verifysig.c
+END
+basicparsetest
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/ccnxaueb_ccnxaueb/!svn/ver/9/csrc/lib/basicparsetest
+END

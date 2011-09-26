@@ -1,0 +1,131 @@
+K 25
+svn:wc:ra_dav:version-url
+V 38
+/svn/ccnxaueb_ccnxaueb/!svn/ver/4/csrc
+END
+README.darwin
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/README.darwin
+END
+configure
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/configure
+END
+subr.mk
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/subr.mk
+END
+generic.mk
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/generic.mk
+END
+Doxyfile
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/Doxyfile
+END
+makefix
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/makefix
+END
+Doxyfile.dist
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/Doxyfile.dist
+END
+Android.mk
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/ccnxaueb_ccnxaueb/!svn/ver/4/csrc/Android.mk
+END
+NOTES
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/NOTES
+END
+conf.mk
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/conf.mk
+END
+README.linux
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/README.linux
+END
+README.cygwin
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/README.cygwin
+END
+Doxyfile.latex
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/Doxyfile.latex
+END
+makefavorites
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/makefavorites
+END
+makeagentcov
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/makeagentcov
+END
+.gitignore
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/.gitignore
+END
+README.freebsd
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/README.freebsd
+END
+README.solaris
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/README.solaris
+END
+README.netbsd
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/README.netbsd
+END
+README.android
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/README.android
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/Makefile
+END

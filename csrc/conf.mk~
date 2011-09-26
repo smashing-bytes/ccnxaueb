@@ -1,0 +1,20 @@
+# generated Linux FOX 2.6.35-30-generic #56-Ubuntu SMP Mon Jul 11 20:00:22 UTC 2011
+#
+#
+#
+SHEXT=so
+SHLIBNAME=libccn.$(SHEXT).1
+SHLIBDEPS=
+SHARED_LD_FLAGS = -shared --whole-archive -soname=$(SHLIBNAME) -lc
+PLATCFLAGS=-fPIC
+CWARNFLAGS = -Wall -Wpointer-arith -Wreturn-type -Wstrict-prototypes
+CPREFLAGS= -I../include -D_REENTRANT
+PCAP_PROGRAMS = ccndumppcap
+RESOLV_LIBS = -lresolv
+INSTALL_BASE = /usr/local
+INSTALL_INCLUDE = $(INSTALL_BASE)/include
+INSTALL_LIB = $(INSTALL_BASE)/lib
+INSTALL_BIN = $(INSTALL_BASE)/bin
+INSTALL = install
+RM = rm -f
+SH = /bin/sh

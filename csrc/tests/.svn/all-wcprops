@@ -1,0 +1,233 @@
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/tests
+END
+extract_test_deps
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/tests/extract_test_deps
+END
+test_selfreg
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/tests/test_selfreg
+END
+test_spur_traffic
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/tests/test_spur_traffic
+END
+preamble
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/tests/preamble
+END
+test_finished
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/tests/test_finished
+END
+test_prefixreg
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/tests/test_prefixreg
+END
+test_final_teardown
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/tests/test_final_teardown
+END
+test_happy_face
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/tests/test_happy_face
+END
+test_key_fetch
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/tests/test_key_fetch
+END
+settings
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/tests/settings
+END
+test_new_provider
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/tests/test_new_provider
+END
+testdriver.sh
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/tests/testdriver.sh
+END
+test_single_ccnd
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/tests/test_single_ccnd
+END
+test_destroyface
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/tests/test_destroyface
+END
+test_twohop_ccnd_teardown
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/tests/test_twohop_ccnd_teardown
+END
+test_single_ccnd_teardown
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/tests/test_single_ccnd_teardown
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/tests/Makefile
+END
+test_coders
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/tests/test_coders
+END
+test_unreg
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/tests/test_unreg
+END
+test_child_selector
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/tests/test_child_selector
+END
+test_ccndid
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/tests/test_ccndid
+END
+test_late
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/tests/test_late
+END
+dir.mk
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/tests/dir.mk
+END
+test_scope2
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/tests/test_scope2
+END
+test_long_consumer2
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/tests/test_long_consumer2
+END
+testdriver
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/tests/testdriver
+END
+test_alone
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/tests/test_alone
+END
+test_answered_interest_suppression
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/tests/test_answered_interest_suppression
+END
+test_long_producer
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/tests/test_long_producer
+END
+test_short_stuff
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/tests/test_short_stuff
+END
+.gitignore
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/tests/.gitignore
+END
+test_interest_suppression
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/tests/test_interest_suppression
+END
+test_twohop_ccnd
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/tests/test_twohop_ccnd
+END
+test_newface
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/tests/test_newface
+END
+test_ccnls_meta
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/tests/test_ccnls_meta
+END
+test_stale
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/tests/test_stale
+END
+functions
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/tests/functions
+END
+test_long_consumer
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/tests/test_long_consumer
+END

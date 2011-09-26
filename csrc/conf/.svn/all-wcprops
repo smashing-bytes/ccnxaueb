@@ -1,0 +1,101 @@
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/conf
+END
+SunOS.sh
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/conf/SunOS.sh
+END
+FreeBSD.mk
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/conf/FreeBSD.mk
+END
+FreeBSD.sh
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/conf/FreeBSD.sh
+END
+NetBSD.mk
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/conf/NetBSD.mk
+END
+OpenSSL.mk
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/conf/OpenSSL.mk
+END
+Darwin.mk
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/conf/Darwin.mk
+END
+SunOS-5.10.mk
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/conf/SunOS-5.10.mk
+END
+pickygcc.mk
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/conf/pickygcc.mk
+END
+Darwin-9.8.0.mk
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/conf/Darwin-9.8.0.mk
+END
+Linux.mk
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/conf/Linux.mk
+END
+CYGWIN_NT-6.0.mk
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/conf/CYGWIN_NT-6.0.mk
+END
+CYGWIN_NT-5.1.mk
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/conf/CYGWIN_NT-5.1.mk
+END
+CYGWIN_NT-6.0.sh
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/conf/CYGWIN_NT-6.0.sh
+END
+CYGWIN_NT-5.1.sh
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/conf/CYGWIN_NT-5.1.sh
+END
+SunOS.mk
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/conf/SunOS.mk
+END
+Darwin-8.11.0.mk
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/conf/Darwin-8.11.0.mk
+END

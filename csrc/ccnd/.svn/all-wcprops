@@ -1,0 +1,161 @@
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/ccnxaueb_ccnxaueb/!svn/ver/4/csrc/ccnd
+END
+ccndbloomstats
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/ccnxaueb_ccnxaueb/!svn/ver/4/csrc/ccnd/ccndbloomstats
+END
+ccnd_built.sh
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/ccnd/ccnd_built.sh
+END
+contentobjecthash.ref
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/ccnd/contentobjecthash.ref
+END
+ccnd_internal_client.c
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/ccnxaueb_ccnxaueb/!svn/ver/4/csrc/ccnd/ccnd_internal_client.c
+END
+minsuffix.ref
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/ccnd/minsuffix.ref
+END
+dir.mk
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/ccnd/dir.mk
+END
+Android.mk
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/ccnxaueb_ccnxaueb/!svn/ver/4/csrc/ccnd/Android.mk
+END
+ccndsmoketest.c
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/ccnd/ccndsmoketest.c
+END
+ccnd_private.h
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/ccnxaueb_ccnxaueb/!svn/ver/4/csrc/ccnd/ccnd_private.h
+END
+ccnd-init-keystore-helper
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/ccnxaueb_ccnxaueb/!svn/ver/4/csrc/ccnd/ccnd-init-keystore-helper
+END
+ccnd.c
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/ccnxaueb_ccnxaueb/!svn/ver/9/csrc/ccnd/ccnd.c
+END
+anything.ref
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/ccnxaueb_ccnxaueb/!svn/ver/4/csrc/ccnd/anything.ref
+END
+ccnd_main.c
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/ccnxaueb_ccnxaueb/!svn/ver/4/csrc/ccnd/ccnd_main.c
+END
+README
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/ccnd/README
+END
+ccnd_msg.c
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/ccnxaueb_ccnxaueb/!svn/ver/4/csrc/ccnd/ccnd_msg.c
+END
+ccnd_built.sh.sample
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/ccnxaueb_ccnxaueb/!svn/ver/4/csrc/ccnd/ccnd_built.sh.sample
+END
+genfortunes
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/ccnd/genfortunes
+END
+ccnd-init-keystore-helper.sh
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/ccnxaueb_ccnxaueb/!svn/ver/4/csrc/ccnd/ccnd-init-keystore-helper.sh
+END
+testbasics
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/ccnd/testbasics
+END
+android_main.c
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/ccnxaueb_ccnxaueb/!svn/ver/4/csrc/ccnd/android_main.c
+END
+ccnd_stats.c
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/ccnxaueb_ccnxaueb/!svn/ver/4/csrc/ccnd/ccnd_stats.c
+END
+ccndsmoketest
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/ccnxaueb_ccnxaueb/!svn/ver/4/csrc/ccnd/ccndsmoketest
+END
+ccnd
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/ccnxaueb_ccnxaueb/!svn/ver/9/csrc/ccnd/ccnd
+END
+android_msg.c
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/ccnxaueb_ccnxaueb/!svn/ver/4/csrc/ccnd/android_msg.c
+END
+fortunes.ccnb
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/ccnd/fortunes.ccnb
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/ccnd/Makefile
+END

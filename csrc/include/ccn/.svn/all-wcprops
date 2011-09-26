@@ -1,0 +1,149 @@
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/ccnxaueb_ccnxaueb/!svn/ver/4/csrc/include/ccn
+END
+fetch.h
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/ccnxaueb_ccnxaueb/!svn/ver/4/csrc/include/ccn/fetch.h
+END
+extend_dict.h
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/include/ccn/extend_dict.h
+END
+schedule.h
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/ccnxaueb_ccnxaueb/!svn/ver/4/csrc/include/ccn/schedule.h
+END
+ccn_private.h
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/include/ccn/ccn_private.h
+END
+signing.h
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/ccnxaueb_ccnxaueb/!svn/ver/4/csrc/include/ccn/signing.h
+END
+uri.h
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/ccnxaueb_ccnxaueb/!svn/ver/4/csrc/include/ccn/uri.h
+END
+reg_mgmt.h
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/ccnxaueb_ccnxaueb/!svn/ver/4/csrc/include/ccn/reg_mgmt.h
+END
+coding.h
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/ccnxaueb_ccnxaueb/!svn/ver/4/csrc/include/ccn/coding.h
+END
+ccn.h
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/ccnxaueb_ccnxaueb/!svn/ver/4/csrc/include/ccn/ccn.h
+END
+matrix.h
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/ccnxaueb_ccnxaueb/!svn/ver/4/csrc/include/ccn/matrix.h
+END
+indexbuf.h
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/ccnxaueb_ccnxaueb/!svn/ver/4/csrc/include/ccn/indexbuf.h
+END
+keystore.h
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/ccnxaueb_ccnxaueb/!svn/ver/3/csrc/include/ccn/keystore.h
+END
+ccnd.h
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/ccnxaueb_ccnxaueb/!svn/ver/4/csrc/include/ccn/ccnd.h
+END
+bloom.h
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/ccnxaueb_ccnxaueb/!svn/ver/4/csrc/include/ccn/bloom.h
+END
+hashtb.h
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/ccnxaueb_ccnxaueb/!svn/ver/4/csrc/include/ccn/hashtb.h
+END
+charbuf.h
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/ccnxaueb_ccnxaueb/!svn/ver/4/csrc/include/ccn/charbuf.h
+END
+digest.h
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/ccnxaueb_ccnxaueb/!svn/ver/4/csrc/include/ccn/digest.h
+END
+merklepathasn1.h
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/ccnxaueb_ccnxaueb/!svn/ver/4/csrc/include/ccn/merklepathasn1.h
+END
+random.h
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/ccnxaueb_ccnxaueb/!svn/ver/4/csrc/include/ccn/random.h
+END
+face_mgmt.h
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/ccnxaueb_ccnxaueb/!svn/ver/4/csrc/include/ccn/face_mgmt.h
+END
+sockcreate.h
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/ccnxaueb_ccnxaueb/!svn/ver/4/csrc/include/ccn/sockcreate.h
+END
+seqwriter.h
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/ccnxaueb_ccnxaueb/!svn/ver/4/csrc/include/ccn/seqwriter.h
+END
+header.h
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/ccnxaueb_ccnxaueb/!svn/ver/4/csrc/include/ccn/header.h
+END
+sockaddrutil.h
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/ccnxaueb_ccnxaueb/!svn/ver/4/csrc/include/ccn/sockaddrutil.h
+END

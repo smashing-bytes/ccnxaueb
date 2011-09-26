@@ -1,0 +1,1 @@
+link ..//tests/../generic.mk
