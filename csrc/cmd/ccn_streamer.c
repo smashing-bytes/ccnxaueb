@@ -31,25 +31,25 @@ char *get_interest_name(struct ccn_upcall_info *info)
 	const unsigned char *comp;
 	size_t comp_size;
 	struct ccn_charbuf *c;
-	char *name;
+	unsigned char *name;
 	struct ccn_indexbuf *comps;
 	ssize_t l;
 	int i;
 	
-	comps = ccn_indexbuf_create();
-	ccn_parse_interest(info->interest_ccnb, sizeof(info->interest_ccnb), info->pi, comps);
-
-	 /* Name */
+	comps = info->interest_comps;
+	printf("Interest components: %d\n", info->interest_comps->n);
+	//ccn_uri_append (c, info->interest_ccnb, sizeof(info->interest_ccnb), 1);
+	                
+	 /* Name 
     c = ccn_charbuf_create();
-    ccn_uri_append(c, info->interest_ccnb, sizeof(info->interest_ccnb), 1);
-
-	printf("%s", ccn_charbuf_as_string(c));
+	name = "ccnx:/";
 	for (i = 0; i < comps->n - 1; i++) 
 	{
         ccn_name_comp_get(info->interest_ccnb, comps, i, &comp, &comp_size);
-        printf("%s", comp);
-    }
-    return ccn_charbuf_as_string (c);
+		//comp has each component
+    }*/
+	printf("%s\n", "mpla");
+    return name;
 }
 
 enum ccn_upcall_res incoming_interest(struct ccn_closure *selfp,
@@ -60,8 +60,8 @@ enum ccn_upcall_res incoming_interest(struct ccn_closure *selfp,
     struct ccn_charbuf *cob = selfp->data;
 
 	
-
-	//printf("Interest: %s \n", get_interest_name(info));
+	get_interest_name(info);
+	printf("Interest: \n");
     printf("Buffer: %s, size: %d\n", ccn_charbuf_as_string (cob), cob->length);
 	
     switch (kind)
@@ -203,12 +203,12 @@ int main(int argc, char **argv)
 
     sp.type = content_type; //Set content type
 	temp->buf = buf;
-   /* res = ccn_sign_content(ccn, temp, name, &sp, buf, sizeof(char)*15);
+    res = ccn_sign_content(ccn, temp, name, &sp, buf, sizeof(char)*15);
     if (res != 0)
     {
         fprintf(stderr, "Failed to encode ContentObject (res == %d)\n", res);
         exit(1);
-    }*/
+    }
 
     in_interest.data = temp;
 
