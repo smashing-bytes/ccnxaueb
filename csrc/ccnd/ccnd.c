@@ -129,6 +129,7 @@ handle_fatal_signal(int sig)
     _exit(sig);
 }
 
+
 static void
 unlink_at_exit(const char *path)
 {

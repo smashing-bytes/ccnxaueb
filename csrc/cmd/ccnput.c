@@ -265,6 +265,8 @@ main(int argc, char **argv)
             }
         }
     }
+	
+	
     temp = ccn_charbuf_create();
 
     /* Ask for a FinalBlockID if appropriate. */

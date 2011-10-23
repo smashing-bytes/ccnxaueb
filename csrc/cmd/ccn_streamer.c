@@ -36,33 +36,56 @@ char *get_interest_name(struct ccn_upcall_info *info)
 	ssize_t l;
 	int i;
 	
+	c = ccn_charbuf_create();
 	comps = info->interest_comps;
 	printf("Interest components: %d\n", info->interest_comps->n);
-	//ccn_uri_append (c, info->interest_ccnb, sizeof(info->interest_ccnb), 1);
-	                
-	 /* Name 
-    c = ccn_charbuf_create();
-	name = "ccnx:/";
-	for (i = 0; i < comps->n - 1; i++) 
-	{
-        ccn_name_comp_get(info->interest_ccnb, comps, i, &comp, &comp_size);
-		//comp has each component
-    }*/
-	printf("%s\n", "mpla");
-    return name;
+	//ccn_uri_append (c, info->interest_ccnb, comps, 1);
+
+	//printf("%s\n", ccn_charbuf_as_string(c));
+    return ccn_charbuf_as_string(c);
 }
 
 enum ccn_upcall_res incoming_interest(struct ccn_closure *selfp,
                                       enum ccn_upcall_kind kind,
                                       struct ccn_upcall_info *info)
 {
-    int res, i;
-    struct ccn_charbuf *cob = selfp->data;
-
+    int res = 0, i;
+    struct ccn_charbuf *cob;
+	struct ccn_charbuf *temp, *pname, *name;
+    enum ccn_content_type content_type = CCN_CONTENT_DATA;
+    struct ccn_signing_params sp = CCN_SIGNING_PARAMS_INIT;
+	unsigned char *buf = NULL;
 	
-	get_interest_name(info);
-	printf("Interest: \n");
-    printf("Buffer: %s, size: %d\n", ccn_charbuf_as_string (cob), cob->length);
+	sp.type = content_type;
+	
+	temp = ccn_charbuf_create();
+	pname = ccn_charbuf_create();
+	name = ccn_charbuf_create();
+	
+	/*Get URI from parameter*/
+    res = ccn_uri_append(pname, info->interest_ccnb, info->interest_comps, 1);
+	ccn_name_from_uri(name, ccn_charbuf_as_string(pname));
+	
+	/*Demo message*/
+	buf = malloc(sizeof(char) * 12);
+    strcpy(buf, "Demo buffer");
+	
+    if (res < 0)
+    {
+        fprintf(stderr, "%s: bad ccn URI: %s\n", progname, ccn_charbuf_as_string(name));
+        exit(1);
+    }
+	
+	printf("Interest name: %s\n", ccn_charbuf_as_string(pname));
+	
+	temp->length = 0;
+	
+	
+	/*Signing should be done here*/
+	res = ccn_sign_content(info->h, temp, name, &sp, buf, sizeof(char)*50);    
+    printf("Buffer: %s, size: %d\n", ccn_charbuf_as_string(temp), temp->length);
+	
+	free(buf);
 	
     switch (kind)
     {
@@ -70,15 +93,15 @@ enum ccn_upcall_res incoming_interest(struct ccn_closure *selfp,
         mylog("CCN_UPCALL_FINAL");
         break;
     case CCN_UPCALL_INTEREST:
-        mylog(get_interest_name(info));
-        if (ccn_content_matches_interest(cob->buf, cob->length,
+	  mylog("CCN_UPCALL_INTEREST");
+        if (ccn_content_matches_interest(temp->buf, temp->length,
                                          1, NULL,
                                          info->interest_ccnb, info->pi->offset[CCN_PI_E],
                                          info->pi))
         {
             mylog("Incoming interest");
-            res = ccn_put(info->h, cob->buf, cob->length);
-
+            res = ccn_put(info->h, temp->buf, temp->length);
+			
             if(res >= 0)
             {
                 mylog("Successful");
@@ -159,6 +182,7 @@ int main(int argc, char **argv)
     struct ccn_closure in_interest = {.p=&incoming_interest};
     struct ccn_charbuf *pname = NULL;
     struct ccn_charbuf *temp = NULL;
+	struct ccn_charbuf *locbuffer = NULL;
     int res;
     unsigned char *buf = NULL;
     enum ccn_content_type content_type = CCN_CONTENT_DATA;
@@ -181,8 +205,9 @@ int main(int argc, char **argv)
     name = ccn_charbuf_create();
     pname = ccn_charbuf_create();
     temp = ccn_charbuf_create();
+	locbuffer = ccn_charbuf_create();
 	
-	
+	/*Content type is data*/
     content_type = CCN_CONTENT_DATA;
 
 
@@ -197,24 +222,8 @@ int main(int argc, char **argv)
 
     ccn_charbuf_append(pname, name->buf, name->length);
 
-    /*Create and sign content object*/
-    buf = malloc(sizeof(char) * 50);
-    strcpy(buf, "Demo buffer");
-
-    sp.type = content_type; //Set content type
-	temp->buf = buf;
-    res = ccn_sign_content(ccn, temp, name, &sp, buf, sizeof(char)*15);
-    if (res != 0)
-    {
-        fprintf(stderr, "Failed to encode ContentObject (res == %d)\n", res);
-        exit(1);
-    }
-
-    in_interest.data = temp;
-
-    printf("%s\n", argv[1]);
     res = ccn_set_interest_filter(ccn, pname, &in_interest);
-
+	
     if (res < 0)
     {
         mylog("Failed to register interest");
@@ -223,7 +232,7 @@ int main(int argc, char **argv)
 
 
 
-    res = ccn_run(ccn, 10000);
+    res = ccn_run(ccn, 15000);
 
     if (in_interest.intdata == 0)
     {
