@@ -167,7 +167,7 @@ void *receive_stream(void *threadid)
     {
 
         /*Deploy current packet within global buffer*/
-		pthread_mutex_lock(&lock);  
+		pthread_mutex_lock(&lock);   //Mutex -> important do not remove
 		memcpy(media_buffer, buf, BUFLEN);
 		pthread_mutex_unlock(&lock); 
 		packet_count++;
