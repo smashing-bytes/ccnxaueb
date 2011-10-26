@@ -12,14 +12,16 @@
 #include <ccn/ccnd.h>
 #include <ccn/uri.h>
 
+#include <pthread.h>
+
 #define SRV_IP "127.0.0.1"
-#define SRV_PORT 1234
-#define BUFLEN 1344
+#define SRV_PORT 1240
+#define BUFLEN 1324
 #define NPACK 10
 
 char *progname;
-
-
+unsigned char *media_buffer;
+pthread_mutex_t lock;
 
 static void mylog(char *msg)
 {
@@ -28,13 +30,8 @@ static void mylog(char *msg)
 
 char *get_interest_name(struct ccn_upcall_info *info)
 {
-	const unsigned char *comp;
-	size_t comp_size;
 	struct ccn_charbuf *c;
-	unsigned char *name;
 	struct ccn_indexbuf *comps;
-	ssize_t l;
-	int i;
 	
 	c = ccn_charbuf_create();
 	comps = info->interest_comps;
@@ -54,7 +51,7 @@ enum ccn_upcall_res incoming_interest(struct ccn_closure *selfp,
 	struct ccn_charbuf *temp, *pname, *name;
     enum ccn_content_type content_type = CCN_CONTENT_DATA;
     struct ccn_signing_params sp = CCN_SIGNING_PARAMS_INIT;
-	unsigned char *buf = NULL;
+	unsigned char *buf;
 	
 	sp.type = content_type;
 	
@@ -63,12 +60,13 @@ enum ccn_upcall_res incoming_interest(struct ccn_closure *selfp,
 	name = ccn_charbuf_create();
 	
 	/*Get URI from parameter*/
-    res = ccn_uri_append(pname, info->interest_ccnb, info->interest_comps, 1);
+	/*Changed info->interest_comps to info->interest_combs->n -- change if it doesnt work --*/
+    res = ccn_uri_append(pname, info->interest_ccnb, (int)info->interest_comps, 1);
 	ccn_name_from_uri(name, ccn_charbuf_as_string(pname));
 	
-	/*Demo message*/
-	buf = malloc(sizeof(char) * 12);
-    strcpy(buf, "Demo buffer");
+	/*Demo message
+	buf = malloc(sizeof(char)*40);
+	strcpy(buf, "Demo Message");*/
 	
     if (res < 0)
     {
@@ -80,12 +78,17 @@ enum ccn_upcall_res incoming_interest(struct ccn_closure *selfp,
 	
 	temp->length = 0;
 	
+
 	
+	printf("Attempting to sign...\n");
+	
+	pthread_mutex_lock(&lock);  
+	printf("Packet content: %s\n", media_buffer);
 	/*Signing should be done here*/
-	res = ccn_sign_content(info->h, temp, name, &sp, buf, sizeof(char)*50);    
-    printf("Buffer: %s, size: %d\n", ccn_charbuf_as_string(temp), temp->length);
+	res = ccn_sign_content(info->h, temp, name, &sp, media_buffer, BUFLEN);    
+   // printf("Buffer: %s, size: %d\n", ccn_charbuf_as_string(temp), temp->length);
 	
-	free(buf);
+	pthread_mutex_unlock(&lock);  
 	
     switch (kind)
     {
@@ -128,13 +131,14 @@ enum ccn_upcall_res incoming_interest(struct ccn_closure *selfp,
 }
 
 
-static int recRTSP()
+void *receive_stream(void *threadid)
 {
 
     struct sockaddr_in si_me, si_other;
     int s, ret, slen = sizeof(si_other);
-
+	unsigned long packet_count = 0;
     char buf[BUFLEN];
+	size_t bytes_total = 0, bytes_read;
 
     if ((s = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP))==-1)
     {
@@ -158,20 +162,45 @@ static int recRTSP()
     }
 
 
+	
     while(recvfrom(s, buf, BUFLEN, 0, &si_other, &slen) != -1)
     {
 
-        //buf
+        /*Deploy current packet within global buffer*/
+		pthread_mutex_lock(&lock);  
+		memcpy(media_buffer, buf, BUFLEN);
+		pthread_mutex_unlock(&lock); 
+		packet_count++;
+		bytes_total += BUFLEN;
+		
 
+		if(packet_count % 100 == 0)
+		{
+			printf("%ld packets received\n", packet_count);
+			printf("%d total bytes\n", bytes_total);
+		}
+		
     }
 
+
+	pthread_exit(NULL);
     close(s);
     return 0;
 }
 
 int main(int argc, char **argv)
 {
-    progname = argv[0];
+
+	/*Thread declaration*/
+	pthread_t stream_thread;
+	int rc;
+	long t = 0;
+
+	/*complex mutex stuff*/
+	pthread_mutex_init(&lock, NULL);
+	media_buffer = malloc(BUFLEN);
+	
+	progname = argv[0];
     if(argc < 2)
     {
         perror("You must supply a URI");
@@ -198,9 +227,16 @@ int main(int argc, char **argv)
         exit(1);
     }
 
-    /*TODO: mix with udp stream*/
-    //recRTSP();
+	/*Create thread for receiving stream*/
+	rc = pthread_create(&stream_thread, NULL, receive_stream, (void *)t);
 
+	if(rc)
+	{
+		mylog("Error: pthread_create()");
+		exit(-1);
+	}
+
+	
     /*Create charbufs*/
     name = ccn_charbuf_create();
     pname = ccn_charbuf_create();
@@ -209,6 +245,7 @@ int main(int argc, char **argv)
 	
 	/*Content type is data*/
     content_type = CCN_CONTENT_DATA;
+
 
 
     /*Get URI from parameter*/
@@ -232,7 +269,9 @@ int main(int argc, char **argv)
 
 
 
-    res = ccn_run(ccn, 15000);
+    res = ccn_run(ccn, -1);
+
+
 
     if (in_interest.intdata == 0)
     {
@@ -246,6 +285,7 @@ int main(int argc, char **argv)
 
 
 
+	pthread_exit(NULL);
     return 0;
 }
 

@@ -130,7 +130,7 @@ ccnhexdumpdata: ccnhexdumpdata.o
 	$(CC) $(CFLAGS) -o $@ ccnhexdumpdata.o $(LDLIBS) $(OPENSSL_LIBS) -lcrypto
 
 ccn_streamer: ccn_streamer.o
-	$(CC) $(CFLAGS) -o $@ ccn_streamer.o $(LDLIBS) $(OPENSSL_LIBS) -lcrypto
+	$(CC) $(CFLAGS) -o $@ ccn_streamer.o $(LDLIBS) $(OPENSSL_LIBS) -lcrypto -pthread
 
 ccn_receiver: ccn_receiver.o
 	$(CC) $(CFLAGS) -o $@ ccn_receiver.o $(LDLIBS) $(OPENSSL_LIBS) -lcrypto
