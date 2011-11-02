@@ -20,7 +20,7 @@ INSTALLED_PROGRAMS = \
     ccn_ccnbtoxml ccn_splitccnb ccndumpnames ccnrm \
     ccnls ccnslurp ccnbx ccncat ccnbasicconfig \
     ccnsendchunks ccncatchunks ccncatchunks2 \
-    ccnput ccnget ccnhexdumpdata ccn_streamer \
+    ccnput ccnget ccnhexdumpdata ccn_receiver ccn_streamer \
 	ccnseqwriter \
 	$(EXPAT_PROGRAMS) $(PCAP_PROGRAMS)
 
@@ -93,6 +93,9 @@ ccnslurp: ccnslurp.o
 ccnbx: ccnbx.o
 	$(CC) $(CFLAGS) -o $@ ccnbx.o $(LDLIBS)   $(OPENSSL_LIBS) -lcrypto
 
+ccn_receiver: ccn_receiver.o
+	$(CC) $(CFLAGS) -o $@ ccn_receiver.o $(LDLIBS) $(OPENSSL_LIBS) -lcrypto
+
 ccncat: ccncat.o
 	$(CC) $(CFLAGS) -o $@ ccncat.o $(LDLIBS) $(OPENSSL_LIBS) -lcrypto
 
@@ -146,6 +149,7 @@ ccn_signing.o:
 
 ccn_merkle_path_asn1.o:
 	$(CC) $(CFLAGS) $(OPENSSL_CFLAGS) -c ccn_merkle_path_asn1.c
+
 
 ccn_verifysig.o:
 	$(CC) $(CFLAGS) $(OPENSSL_CFLAGS) -c ccn_verifysig.c

@@ -293,8 +293,8 @@ ask_more(struct mydata *md, uintmax_t seq)
     name = sequenced_name(md, seq);
     templ = make_template(md);
     update_rtt(md, 0, slot);
-    //res = ccn_express_interest(md->h, name, cl, templ);
-    res = ccn_express_persistent_interest(md->h, name, cl, templ);
+    res = ccn_express_interest(md->h, name, cl, templ);
+    //res = ccn_express_persistent_interest(md->h, name, cl, templ);
     if (res < 0) abort();
     md->interests_sent++;
     ccn_charbuf_destroy(&templ);
@@ -345,8 +345,8 @@ fill_holes(struct ccn_schedule *sched, void *clienth,
             cl->p = &hole_filled;
             name = sequenced_name(md, md->delivered);
             templ = make_template(md);
-          //  ccn_express_interest(md->h, name, cl, templ);
-           ccn_express_persistent_interest(md->h, name, cl, templ);
+            ccn_express_interest(md->h, name, cl, templ);
+         //  ccn_express_persistent_interest(md->h, name, cl, templ);
             md->interests_sent++;
             ccn_charbuf_destroy(&templ);
             ccn_charbuf_destroy(&name);

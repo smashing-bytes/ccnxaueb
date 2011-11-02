@@ -70,7 +70,8 @@ enum ccn_upcall_res incoming_interest(struct ccn_closure *selfp,
 	
     if (res < 0)
     {
-        fprintf(stderr, "%s: bad ccn URI: %s\n", progname, ccn_charbuf_as_string(name));
+		
+        fprintf(stderr, "%s: bad ccn URI: %s\n", progname, ccn_charbuf_as_string(pname));
         exit(1);
     }
 	
