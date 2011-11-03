@@ -27,8 +27,9 @@
 #define NPACK 10
 
 char *progname;
-unsigned char *media_buffer;
+unsigned char **media_buffer;
 pthread_mutex_t lock;
+unsigned short current_slot, indice;
 
 static void mylog(char *msg)
 {
@@ -44,6 +45,18 @@ static void print_as_hex (const unsigned char *digest, int len)
   	}
 }
 
+static void shift_array(unsigned char *array, short amount)
+{
+	int i;
+	
+	for(i = 1; i < NPACK; i++)
+	{
+
+		array[i] = array[i + 1]; 
+
+	}
+	current_slot = NPACK - 1;
+}
 static unsigned char hash_packet(unsigned char *data, size_t data_len)
 {
 	EVP_MD_CTX mdctx;
@@ -93,6 +106,7 @@ enum ccn_upcall_res incoming_interest(struct ccn_closure *selfp,
 	
 	/*Get URI from parameter*/
 	/*Changed info->interest_comps to info->interest_combs->n -- change if it doesnt work --*/
+
     res = ccn_uri_append(pname, info->interest_ccnb, (int)info->interest_comps, 1);
 	ccn_name_from_uri(name, ccn_charbuf_as_string(pname));
 	
@@ -118,7 +132,10 @@ enum ccn_upcall_res incoming_interest(struct ccn_closure *selfp,
 	pthread_mutex_lock(&lock);  
 	//printf("Packet content: %s\n", media_buffer);
 	/*Signing should be done here*/
-	res = ccn_sign_content(info->h, temp, name, &sp, media_buffer, BUFLEN);    
+	printf("%d : ", indice);
+	res = ccn_sign_content(info->h, temp, name, &sp, media_buffer[indice], BUFLEN);    
+	if(indice < NPACK - 2)
+		indice++;
    // printf("Buffer: %s, size: %d\n", ccn_charbuf_as_string(temp), temp->length);
 	
 	pthread_mutex_unlock(&lock);  
@@ -166,7 +183,7 @@ enum ccn_upcall_res incoming_interest(struct ccn_closure *selfp,
 
 void *receive_stream(void *threadid)
 {
-
+	unsigned char fill = 0;
     struct sockaddr_in si_me, si_other;
     int s, ret, slen = sizeof(si_other);
 	unsigned long packet_count = 0;
@@ -201,12 +218,37 @@ void *receive_stream(void *threadid)
     {
 
 		/*Print md5 hash of packet*/
-		hash = hash_packet (buf, BUFLEN);
+		//hash = hash_packet (buf, BUFLEN);
 		printf("\n");
-		usleep(40);
+		
         /*Deploy current packet within global buffer*/
 		pthread_mutex_lock(&lock);   //Mutex -> important do not remove
-		memcpy(media_buffer, buf, BUFLEN);
+		if(current_slot == NPACK - 1)
+		{
+			current_slot = 0;
+			fill = 1;
+			//shift_array (media_buffer, 1);
+		}
+		
+		memcpy(media_buffer[current_slot], buf, BUFLEN);
+
+
+		if(fill == 0)
+		{
+			indice = 0;
+		}
+		else
+		{
+			if(current_slot == NPACK - 1)
+			{
+				indice = 0;
+				//current_slot = 0;
+			}
+			else
+				indice = current_slot + 1;
+		}
+		printf("slot: %d, indice: %d\n", current_slot, indice);
+		current_slot++;
 		pthread_mutex_unlock(&lock); 
 		packet_count++;
 		bytes_total += BUFLEN;
@@ -231,19 +273,29 @@ int main(int argc, char **argv)
 
 	/*Thread declaration*/
 	pthread_t stream_thread;
-	int rc;
+	int rc, i = 0;
 	long t = 0;
 
 	/*complex mutex stuff*/
 	pthread_mutex_init(&lock, NULL);
-	media_buffer = malloc(BUFLEN);
-	
+
+	/*Allocate buffer space*/
+	media_buffer = malloc(NPACK * sizeof(unsigned char *));
+	for(i = 0; i < NPACK; i++)
+	{
+		media_buffer[i] = malloc(BUFLEN);
+	}
+
+	current_slot = 0;
+	indice = 0;
 	progname = argv[0];
+	
     if(argc < 2)
     {
         perror("You must supply a URI");
         return -1;
     }
+	
     struct ccn *ccn = NULL;
     struct ccn_charbuf *name = NULL;
     struct ccn_closure in_interest = {.p=&incoming_interest};

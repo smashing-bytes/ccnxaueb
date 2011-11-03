@@ -158,8 +158,7 @@ void close_socket()
 
 void send_packet(unsigned char *data, size_t data_len)
 {
-	unsigned char *hash;
-	hash = hash_packet (data, data_len);
+
 	printf("\n");
 	/*Attempt to send packet*/
 	//printf("Packet send: ");
