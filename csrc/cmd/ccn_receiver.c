@@ -30,10 +30,18 @@
 #include <sys/types.h>
 #include <sys/socket.h>
 
+
+/*OpenSSL stuff*/
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <unistd.h>
+#include <openssl/evp.h>
+
 #include <ccn/ccn.h>
 #include <ccn/charbuf.h>
 #include <ccn/schedule.h>
 #include <ccn/uri.h>
+
 
 #define PIPELIMIT (1U << 7)
 //#define GOT_HERE() fprintf(stderr, "LINE %d\n", __LINE__)
@@ -98,6 +106,30 @@ static int fill_holes(struct ccn_schedule *sched, void *clienth,
 
 static FILE* logstream = NULL;
 
+static void print_as_hex (const unsigned char *digest, int len) 
+{	
+  	int i;
+  	for(i = 0; i < len; i++)
+	{
+    	printf ("%02x", digest[i]);
+  	}
+}
+
+static unsigned char hash_packet(unsigned char *data, size_t data_len)
+{
+	EVP_MD_CTX mdctx;
+	unsigned char md_value[EVP_MAX_MD_SIZE];
+	unsigned int md_len;
+
+	EVP_DigestInit(&mdctx, EVP_md5());
+	EVP_DigestUpdate(&mdctx, data, (size_t) data_len);
+	EVP_DigestFinal_ex(&mdctx, md_value, &md_len);
+	EVP_MD_CTX_cleanup(&mdctx);
+	print_as_hex (md_value, md_len);
+	return md_value;
+
+}
+
 void instantiate_socket()
 {
 
@@ -126,8 +158,12 @@ void close_socket()
 
 void send_packet(unsigned char *data, size_t data_len)
 {
-
+	unsigned char *hash;
+	hash = hash_packet (data, data_len);
+	printf("\n");
 	/*Attempt to send packet*/
+	//printf("Packet send: ");
+	
 	sendto(sock, data, data_len, 0, &si_other, sizeof(si_other));
 
 }
@@ -536,8 +572,8 @@ incoming_content(struct ccn_closure *selfp,
         md->delivered_bytes += data_size;
 
 		
-        written = fwrite(data, data_size, 1, stdout);
-
+        written = fwrite(data, data_size, 1, stderr);
+		
 		send_packet(data, data_size);
 		
         if (written != 1)
@@ -559,7 +595,7 @@ incoming_content(struct ccn_closure *selfp,
             struct ooodata *ooo = &md->ooo[slot];
             md->delivered++;
             md->delivered_bytes += (ooo->raw_data_size - 1);
-            written = fwrite(ooo->raw_data, ooo->raw_data_size - 1, 1, stdout);
+            written = fwrite(ooo->raw_data, ooo->raw_data_size - 1, 1, stderr);
 
 			
 			/*Send to UDP socket*/

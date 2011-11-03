@@ -14,6 +14,13 @@
 
 #include <pthread.h>
 
+/*OpenSSL stuff*/
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <unistd.h>
+#include <openssl/evp.h>
+
+
 #define SRV_IP "127.0.0.1"
 #define SRV_PORT 1240
 #define BUFLEN 1324
@@ -27,6 +34,31 @@ static void mylog(char *msg)
 {
     printf("[%s]: %s\n", progname, msg);
 }
+
+static void print_as_hex (const unsigned char *digest, int len) 
+{	
+  	int i;
+  	for(i = 0; i < len; i++)
+	{
+    	printf ("%02x", digest[i]);
+  	}
+}
+
+static unsigned char hash_packet(unsigned char *data, size_t data_len)
+{
+	EVP_MD_CTX mdctx;
+	unsigned char md_value[EVP_MAX_MD_SIZE];
+	unsigned int md_len;
+
+	EVP_DigestInit(&mdctx, EVP_md5());
+	EVP_DigestUpdate(&mdctx, data, (size_t) data_len);
+	EVP_DigestFinal_ex(&mdctx, md_value, &md_len);
+	EVP_MD_CTX_cleanup(&mdctx);
+	print_as_hex (md_value, md_len);
+	return md_value;
+
+}
+
 
 char *get_interest_name(struct ccn_upcall_info *info)
 {
@@ -75,16 +107,16 @@ enum ccn_upcall_res incoming_interest(struct ccn_closure *selfp,
         exit(1);
     }
 	
-	printf("Interest name: %s\n", ccn_charbuf_as_string(pname));
+	//printf("Interest name: %s\n", ccn_charbuf_as_string(pname));
 	
 	temp->length = 0;
 	
 
 	
-	printf("Attempting to sign...\n");
+	//printf("Attempting to sign...\n");
 	
 	pthread_mutex_lock(&lock);  
-	printf("Packet content: %s\n", media_buffer);
+	//printf("Packet content: %s\n", media_buffer);
 	/*Signing should be done here*/
 	res = ccn_sign_content(info->h, temp, name, &sp, media_buffer, BUFLEN);    
    // printf("Buffer: %s, size: %d\n", ccn_charbuf_as_string(temp), temp->length);
@@ -94,21 +126,21 @@ enum ccn_upcall_res incoming_interest(struct ccn_closure *selfp,
     switch (kind)
     {
     case CCN_UPCALL_FINAL:
-        mylog("CCN_UPCALL_FINAL");
+       // mylog("CCN_UPCALL_FINAL");
         break;
     case CCN_UPCALL_INTEREST:
-	  mylog("CCN_UPCALL_INTEREST");
+	 // mylog("CCN_UPCALL_INTEREST");
         if (ccn_content_matches_interest(temp->buf, temp->length,
                                          1, NULL,
                                          info->interest_ccnb, info->pi->offset[CCN_PI_E],
                                          info->pi))
         {
-            mylog("Incoming interest");
+           // mylog("Incoming interest");
             res = ccn_put(info->h, temp->buf, temp->length);
 			
             if(res >= 0)
             {
-                mylog("Successful");
+               // mylog("Successful");
                 selfp->intdata = 1;
                 //ccn_set_run_timeout(info->h, 0);
                 return(CCN_UPCALL_RESULT_INTEREST_CONSUMED);
@@ -124,7 +156,7 @@ enum ccn_upcall_res incoming_interest(struct ccn_closure *selfp,
         }
         break;
     default:
-        mylog("default");
+        //mylog("default");
         break;
     }
 
@@ -139,6 +171,7 @@ void *receive_stream(void *threadid)
     int s, ret, slen = sizeof(si_other);
 	unsigned long packet_count = 0;
     char buf[BUFLEN];
+	unsigned char *hash;
 	size_t bytes_total = 0, bytes_read;
 
     if ((s = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP))==-1)
@@ -167,6 +200,10 @@ void *receive_stream(void *threadid)
     while(recvfrom(s, buf, BUFLEN, 0, &si_other, &slen) != -1)
     {
 
+		/*Print md5 hash of packet*/
+		hash = hash_packet (buf, BUFLEN);
+		printf("\n");
+		usleep(40);
         /*Deploy current packet within global buffer*/
 		pthread_mutex_lock(&lock);   //Mutex -> important do not remove
 		memcpy(media_buffer, buf, BUFLEN);
@@ -175,7 +212,7 @@ void *receive_stream(void *threadid)
 		bytes_total += BUFLEN;
 		
 
-		if(packet_count % 100 == 0)
+		if(packet_count % 500 == 0)
 		{
 			printf("%ld packets received\n", packet_count);
 			printf("%d total bytes\n", bytes_total);
