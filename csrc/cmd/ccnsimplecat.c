@@ -131,7 +131,8 @@ incoming_content(struct ccn_closure *selfp,
         *(md->done) = 1;
     else
     {
-        written = fwrite(data, data_size, 1, stdout);
+        written = fwrite(data, data_size, 1, stderr);
+		printf("%s %lu\n", data, atoi(data));
         if (written != 1)
             exit(1);
     }

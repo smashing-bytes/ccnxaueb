@@ -159,7 +159,7 @@ void close_socket()
 void send_packet(unsigned char *data, size_t data_len)
 {
 
-	printf("\n");
+
 	/*Attempt to send packet*/
 	//printf("Packet send: ");
 	
@@ -573,6 +573,8 @@ incoming_content(struct ccn_closure *selfp,
 		
         written = fwrite(data, data_size, 1, stderr);
 		
+
+		
 		send_packet(data, data_size);
 		
         if (written != 1)
@@ -596,7 +598,7 @@ incoming_content(struct ccn_closure *selfp,
             md->delivered_bytes += (ooo->raw_data_size - 1);
             written = fwrite(ooo->raw_data, ooo->raw_data_size - 1, 1, stderr);
 
-			
+			printf("Pack number:%s\n", ooo->raw_data);
 			/*Send to UDP socket*/
 			send_packet(ooo->raw_data, ooo->raw_data_size);
 

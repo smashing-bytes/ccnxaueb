@@ -165,11 +165,12 @@ main(int argc, char **argv)
         {
             if (res > 0)
             {
-                fwrite(buf, res, 1, stdout);
+                //fwrite(buf, res, 1, stdout);
+				printf("%lu\n", buf);
             }
             else if (res == CCN_FETCH_READ_NONE)
             {
-                if (ccn_run(ccn, 1000) < 0)
+                if (ccn_run(ccn, -1) < 0)
                 {
                     fprintf(stderr, "%s: error during ccn_run\n", argv[0]);
                     exit(1);
@@ -183,7 +184,7 @@ main(int argc, char **argv)
             {
                 /* eventually have a way to handle long timeout? */
                 ccn_reset_timeout(stream);
-                if (ccn_run(ccn, 1000) < 0)
+                if (ccn_run(ccn, -1) < 0)
                 {
                     fprintf(stderr, "%s: error during ccn_run\n", argv[0]);
                     exit(1);

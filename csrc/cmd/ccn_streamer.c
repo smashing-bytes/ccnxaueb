@@ -3,7 +3,6 @@
 #include <stdlib.h>
 #include <arpa/inet.h>
 #include <netinet/in.h>
-#include <stdio.h>
 #include <sys/types.h>
 #include <sys/socket.h>
 #include <unistd.h>
@@ -20,16 +19,19 @@
 #include <unistd.h>
 #include <openssl/evp.h>
 
+#include "queue.c"
 
 #define SRV_IP "127.0.0.1"
 #define SRV_PORT 1240
 #define BUFLEN 1324
-#define NPACK 10
+#define NPACK 1000
 
 char *progname;
 unsigned char **media_buffer;
 pthread_mutex_t lock;
 unsigned short current_slot, indice;
+short idx = 0, num = 0, oldest = 0;
+
 
 static void mylog(char *msg)
 {
@@ -91,7 +93,7 @@ enum ccn_upcall_res incoming_interest(struct ccn_closure *selfp,
                                       enum ccn_upcall_kind kind,
                                       struct ccn_upcall_info *info)
 {
-    int res = 0, i;
+    int res = 0, i = 0;
     struct ccn_charbuf *cob;
 	struct ccn_charbuf *temp, *pname, *name;
     enum ccn_content_type content_type = CCN_CONTENT_DATA;
@@ -110,9 +112,7 @@ enum ccn_upcall_res incoming_interest(struct ccn_closure *selfp,
     res = ccn_uri_append(pname, info->interest_ccnb, (int)info->interest_comps, 1);
 	ccn_name_from_uri(name, ccn_charbuf_as_string(pname));
 	
-	/*Demo message
-	buf = malloc(sizeof(char)*40);
-	strcpy(buf, "Demo Message");*/
+
 	
     if (res < 0)
     {
@@ -130,14 +130,23 @@ enum ccn_upcall_res incoming_interest(struct ccn_closure *selfp,
 	//printf("Attempting to sign...\n");
 	
 	pthread_mutex_lock(&lock);  
-	//printf("Packet content: %s\n", media_buffer);
-	/*Signing should be done here*/
-	printf("%d : ", indice);
-	res = ccn_sign_content(info->h, temp, name, &sp, media_buffer[indice], BUFLEN);    
-	if(indice < NPACK - 2)
-		indice++;
-   // printf("Buffer: %s, size: %d\n", ccn_charbuf_as_string(temp), temp->length);
 	
+
+	/*Signing should be done here*/
+
+
+	if(oldest > NPACK - 1)
+	{
+		pthread_mutex_unlock(&lock);  
+		return(CCN_UPCALL_RESULT_OK);
+	}
+    	
+	
+	printf("CCNx - giving %s\n", media_buffer[oldest]);
+	res = ccn_sign_content(info->h, temp, name, &sp, media_buffer[oldest++], BUFLEN);    
+	
+   // printf("Buffer: %s, size: %d\n", ccn_charbuf_as_string(temp), temp->length);
+
 	pthread_mutex_unlock(&lock);  
 	
     switch (kind)
@@ -147,6 +156,10 @@ enum ccn_upcall_res incoming_interest(struct ccn_closure *selfp,
         break;
     case CCN_UPCALL_INTEREST:
 	 // mylog("CCN_UPCALL_INTEREST");
+
+
+	
+				
         if (ccn_content_matches_interest(temp->buf, temp->length,
                                          1, NULL,
                                          info->interest_ccnb, info->pi->offset[CCN_PI_E],
@@ -154,7 +167,6 @@ enum ccn_upcall_res incoming_interest(struct ccn_closure *selfp,
         {
            // mylog("Incoming interest");
             res = ccn_put(info->h, temp->buf, temp->length);
-			
             if(res >= 0)
             {
                // mylog("Successful");
@@ -219,38 +231,35 @@ void *receive_stream(void *threadid)
 
 		/*Print md5 hash of packet*/
 		//hash = hash_packet (buf, BUFLEN);
-		printf("\n");
+		printf("Pack #:%lu\n", packet_count);
+
 		
-        /*Deploy current packet within global buffer*/
+        /*Deploy current packet within global circular buffer*/
 		pthread_mutex_lock(&lock);   //Mutex -> important do not remove
-		if(current_slot == NPACK - 1)
+		memcpy(media_buffer[idx++], buf, BUFLEN);
+		pthread_mutex_unlock(&lock); 
+		idx %= NPACK;
+
+		if(packet_count < NPACK)
 		{
-			current_slot = 0;
-			fill = 1;
-			//shift_array (media_buffer, 1);
+			oldest = 0;
 		}
 		
-		memcpy(media_buffer[current_slot], buf, BUFLEN);
-
-
-		if(fill == 0)
+		if(packet_count % NPACK == NPACK - 1)
 		{
-			indice = 0;
+			
+			oldest = 0;
 		}
 		else
 		{
-			if(current_slot == NPACK - 1)
-			{
-				indice = 0;
-				//current_slot = 0;
-			}
-			else
-				indice = current_slot + 1;
+			oldest = (packet_count % NPACK) + 1;
 		}
-		printf("slot: %d, indice: %d\n", current_slot, indice);
-		current_slot++;
-		pthread_mutex_unlock(&lock); 
+		
 		packet_count++;
+		
+	
+		
+
 		bytes_total += BUFLEN;
 		
 
@@ -285,6 +294,7 @@ int main(int argc, char **argv)
 	{
 		media_buffer[i] = malloc(BUFLEN);
 	}
+
 
 	current_slot = 0;
 	indice = 0;
