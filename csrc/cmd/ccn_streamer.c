@@ -19,18 +19,19 @@
 #include <unistd.h>
 #include <openssl/evp.h>
 
-#include "queue.c"
+
 
 #define SRV_IP "127.0.0.1"
 #define SRV_PORT 1240
-#define BUFLEN 1324
-#define NPACK 1000
+#define BUFLEN 1316
+#define NPACK 16000
 
 char *progname;
 unsigned char **media_buffer;
 pthread_mutex_t lock;
 unsigned short current_slot, indice;
-short idx = 0, num = 0, oldest = 0;
+short idx = 0, oldest = 0;
+unsigned long written = 0, _read = 0;
 
 
 static void mylog(char *msg)
@@ -93,12 +94,13 @@ enum ccn_upcall_res incoming_interest(struct ccn_closure *selfp,
                                       enum ccn_upcall_kind kind,
                                       struct ccn_upcall_info *info)
 {
+	printf("le incoming interest\n");
     int res = 0, i = 0;
     struct ccn_charbuf *cob;
 	struct ccn_charbuf *temp, *pname, *name;
     enum ccn_content_type content_type = CCN_CONTENT_DATA;
     struct ccn_signing_params sp = CCN_SIGNING_PARAMS_INIT;
-	unsigned char *buf;
+	unsigned char *buf, *nack;
 	
 	sp.type = content_type;
 	
@@ -133,19 +135,24 @@ enum ccn_upcall_res incoming_interest(struct ccn_closure *selfp,
 	
 
 	/*Signing should be done here*/
-
-
-	if(oldest > NPACK - 1)
+	
+	printf("Oldest: %d\n", oldest);
+	if(_read >= written)
 	{
-		pthread_mutex_unlock(&lock);  
-		return(CCN_UPCALL_RESULT_OK);
+		nack = malloc(sizeof(unsigned char)*5);
+		
+		printf("Delivering nack\n", nack);
+		res = ccn_sign_content(info->h, temp, name, &sp, nack, sizeof(unsigned char)*5);   
+		free(nack);
 	}
-    	
-	
-	printf("CCNx - giving %s\n", media_buffer[oldest]);
-	res = ccn_sign_content(info->h, temp, name, &sp, media_buffer[oldest++], BUFLEN);    
-	
-   // printf("Buffer: %s, size: %d\n", ccn_charbuf_as_string(temp), temp->length);
+	else
+	{
+    		
+		printf("Delivering index:%d Packet number:%s\n", oldest, media_buffer[oldest]);
+		res = ccn_sign_content(info->h, temp, name, &sp, media_buffer[oldest++], BUFLEN);   
+		_read++;
+	}
+
 
 	pthread_mutex_unlock(&lock);  
 	
@@ -225,42 +232,29 @@ void *receive_stream(void *threadid)
     }
 
 
-	
-    while(recvfrom(s, buf, BUFLEN, 0, &si_other, &slen) != -1)
+	printf("Packets Received\t\tPacket Number\t\tBuffer Position\n");
+    while((bytes_read = recvfrom(s, buf, BUFLEN, 0, &si_other, &slen)) != -1)
     {
 
 		/*Print md5 hash of packet*/
 		//hash = hash_packet (buf, BUFLEN);
-		printf("Pack #:%lu\n", packet_count);
+		
 
 		
         /*Deploy current packet within global circular buffer*/
 		pthread_mutex_lock(&lock);   //Mutex -> important do not remove
-		memcpy(media_buffer[idx++], buf, BUFLEN);
+		memcpy(media_buffer[idx], buf, bytes_read);
 		pthread_mutex_unlock(&lock); 
-		idx %= NPACK;
-
-		if(packet_count < NPACK)
-		{
-			oldest = 0;
-		}
+		printf("%lu\t\t        %lu\t\t %d \n", packet_count, atoi(buf), bytes_read);
+		idx++;
+		written++;
 		
-		if(packet_count % NPACK == NPACK - 1)
-		{
-			
-			oldest = 0;
-		}
-		else
-		{
-			oldest = (packet_count % NPACK) + 1;
-		}
 		
 		packet_count++;
 		
-	
 		
 
-		bytes_total += BUFLEN;
+		bytes_total += bytes_read;
 		
 
 		if(packet_count % 500 == 0)
