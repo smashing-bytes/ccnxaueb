@@ -26,6 +26,59 @@
 #include <ccn/charbuf.h>
 #include <ccn/uri.h>
 
+
+#include <arpa/inet.h>
+#include <netinet/in.h>
+#include <sys/types.h>
+#include <sys/socket.h>
+
+
+#define UDP_PORT 1250
+#define SRV_IP "127.0.0.1"
+
+
+struct excludestuff;
+struct sockaddr_in si_other;
+int sock; //Socket
+
+
+void instantiate_socket()
+{
+
+	if((sock = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP)) == -1)
+	{
+		exit(-1);
+	}
+	memset((char *) &si_other, 0, sizeof(si_other));
+
+	si_other.sin_family = AF_INET;
+	si_other.sin_port = htons(UDP_PORT);
+
+	if (inet_aton(SRV_IP, &si_other.sin_addr) == 0) 
+	{
+		
+        fprintf(stderr, "inet_aton() failed\n");
+        exit(1);
+    }
+}	
+
+void close_socket()
+{
+
+	close(sock);
+}
+
+void send_packet(unsigned char *data, size_t data_len)
+{
+
+
+	/*Attempt to send packet*/
+	//printf("Packet send: ");
+	
+	sendto(sock, data, data_len, 0, &si_other, sizeof(si_other));
+
+}
+
 /**
  * Provide usage hints for the program and then exit with a non-zero status.
  */
@@ -106,7 +159,12 @@ incoming_content(struct ccn_closure *selfp,
         return(CCN_UPCALL_RESULT_OK);
     }
     if (kind == CCN_UPCALL_INTEREST_TIMED_OUT)
-        return(CCN_UPCALL_RESULT_REEXPRESS);
+	{
+		 printf("le timeout!\n");
+		 return(CCN_UPCALL_RESULT_REEXPRESS);
+	}
+	
+
     if (kind == CCN_UPCALL_CONTENT_UNVERIFIED)
         return(CCN_UPCALL_RESULT_VERIFY);
     if (kind != CCN_UPCALL_CONTENT)
@@ -132,7 +190,14 @@ incoming_content(struct ccn_closure *selfp,
     else
     {
         written = fwrite(data, data_size, 1, stderr);
-		printf("%s %lu\n", data, atoi(data));
+		
+
+		if(data_size > 500)
+		{
+			//printf("Pack: %lu\n size:%d\n", atoi(data), data_size);
+			send_packet(data, data_size);
+		}
+
         if (written != 1)
             exit(1);
     }
@@ -176,6 +241,8 @@ incoming_content(struct ccn_closure *selfp,
     ccn_name_append_numeric(name, CCN_MARKER_SEQNUM, ++(selfp->intdata));
     templ = make_template(md, info);
 
+	//printf("Expressing interest!\n");
+	//usleep(50);
     res = ccn_express_interest(info->h, name, selfp, templ);
     if (res < 0) abort();
 
@@ -207,7 +274,10 @@ main(int argc, char **argv)
 
     done = calloc(1, sizeof(*done));
 
-    while ((opt = getopt(argc, argv, "ha")) != -1)
+	instantiate_socket();
+
+
+	while ((opt = getopt(argc, argv, "ha")) != -1)
     {
         switch (opt)
         {
@@ -257,7 +327,7 @@ main(int argc, char **argv)
         ccn_express_interest(ccn, name, incoming, templ);
         ccn_charbuf_destroy(&templ);
         /* Run a little while to see if there is anything there */
-        res = ccn_run(ccn, 200);
+        res = ccn_run(ccn, -1);
         if ((!*done) && incoming->intdata == 0)
         {
             fprintf(stderr, "%s: not found: %s\n", argv[0], arg);
@@ -267,7 +337,7 @@ main(int argc, char **argv)
         while (res >= 0 && !*done)
         {
             fflush(stdout);
-            res = ccn_run(ccn, 333);
+            res = ccn_run(ccn, -1);
         }
         if (res < 0)
             exit_status = 1;
